@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 const API = "http://localhost:5000/api";
 
 function App() {
-    const [page, setPage] = useState("home");
+    const [page, setPage] = useState("login");
     const [claims, setClaims] = useState([]);
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
