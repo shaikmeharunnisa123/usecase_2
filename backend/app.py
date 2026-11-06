@@ -3,16 +3,16 @@ from flask_cors import CORS
 import psycopg2
 from psycopg2.extras import RealDictCursor
 from werkzeug.security import generate_password_hash, check_password_hash
-
+import os
 app = Flask(__name__)
 CORS(app)
 
 DB_CONFIG = {
-    "host": "localhost",
-    "database": "claimsdb",
-    "user": "claimsuser",
-    "password": "claimspassword",
-    "port": 5432
+    "host": os.getenv("DB_HOST", "localhost"),
+    "database": os.getenv("DB_NAME", "claimsdb"),
+    "user": os.getenv("DB_USER", "claimsuser"),
+    "password": os.getenv("DB_PASSWORD", "claimspassword"),
+    "port": int(os.getenv("DB_PORT", 5432))
 }
 
 
