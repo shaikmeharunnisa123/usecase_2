@@ -1,0 +1,10 @@
+
+frontend:
+  replicaCount: 1
+  image:
+    digest: "sha256:eeb474ac89e5e09bddf3f1f8f823971bc704c5c7a3c24e28935cd637300dab38"
+
+backend:
+  replicaCount: 1
+  image:
+    digest: "sha256:12d8407059a3c63ceeb3c941f047c223a9ac52f2a9db505c6e0270646e6e41bb"

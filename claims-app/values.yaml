@@ -1,0 +1,37 @@
+
+# Frontend configuration
+frontend:
+  replicaCount: 1
+  image:
+    repository: host.docker.internal:80/usecase_2/frontend
+    digest: ""
+    pullPolicy: IfNotPresent
+  service:
+    port: 80
+
+# Backend configuration
+backend:
+  replicaCount: 1
+  image:
+    repository: host.docker.internal:80/usecase_2/backend
+    digest: ""
+    pullPolicy: IfNotPresent
+  service:
+    port: 5000
+
+# Database configuration
+database:
+  image:
+    repository: postgres
+    tag: "16-alpine"
+    pullPolicy: IfNotPresent
+  name: claimsdb
+  user: claimsuser
+  password: claimspassword
+  service:
+    port: 5432
+  storage: 1Gi
+
+# Private Harbor registry credentials
+imagePullSecrets:
+  - name: harbor-registry-secret
