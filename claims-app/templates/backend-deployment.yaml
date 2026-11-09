@@ -17,7 +17,7 @@ spec:
         {{- toYaml .Values.imagePullSecrets | nindent 8 }}
       containers:
         - name: backend
-          image: "{{ .Values.backend.image.repository }}{{ if .Values.backend.image.digest }}@{{ .Values.backend.image.digest }}{{ else }}:v1{{ end }}"
+          image: "{{ .Values.backend.image.repository }}{{ if .Values.backend.image.digest }}@{{ .Values.backend.image.digest }}{{ else }}:{{ .Values.backend.image.tag }}{{ end }}"
           imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
           ports:
             - containerPort: 5000
