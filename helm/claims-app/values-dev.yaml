@@ -1,0 +1,17 @@
+
+backend:
+  replicaCount: 1
+
+frontend:
+  replicaCount: 1
+
+database:
+  replicaCount: 1
+  storage:
+    size: 1Gi
+    storageClass: standard
+
+gateway:
+  enabled: true
+  className: nginx
+  hostname: claims-gitops.localhost

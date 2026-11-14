@@ -1,0 +1,41 @@
+
+nameOverride: ""
+fullnameOverride: ""
+
+backend:
+  replicaCount: 1
+  image:
+    repository: usecase3-backend
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    port: 5000
+
+frontend:
+  replicaCount: 1
+  image:
+    repository: usecase5-frontend
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    port: 80
+
+database:
+  replicaCount: 1
+  image:
+    repository: postgres
+    tag: 16-alpine
+    pullPolicy: IfNotPresent
+  service:
+    port: 5432
+  storage:
+    size: 1Gi
+    storageClass: standard
+
+  name: claimsdb
+  user: claimsuser
+
+gateway:
+  enabled: true
+  className: nginx
+  hostname: claims-gitops.localhost
