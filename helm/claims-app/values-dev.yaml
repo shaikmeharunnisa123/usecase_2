@@ -3,7 +3,7 @@ backend:
   replicaCount: 1
 
 frontend:
-  replicaCount: 2
+  replicaCount: 1
 
 database:
   replicaCount: 1
