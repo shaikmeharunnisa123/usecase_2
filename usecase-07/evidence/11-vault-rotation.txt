@@ -1,0 +1,1 @@
+Vault secret rotation succeeded. Metadata verification confirmed current_version=2. Password value was not displayed.
