@@ -1,0 +1,11 @@
+groups:
+  - name: claims-backend-alerts
+    rules:
+      - alert: ClaimsBackendDown
+        expr: up{job="claims-backend"} == 0
+        for: 15s
+        labels:
+          severity: critical
+        annotations:
+          summary: "Claims backend is down"
+          description: "Prometheus cannot scrape the Claims backend."

@@ -1,0 +1,82 @@
+
+name: claims-observability
+
+services:
+  prometheus:
+    image: prom/prometheus:v3.15.0
+    container_name: claims-prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./prometheus/alert-rules.yml:/etc/prometheus/alert-rules.yml:ro
+      - prometheus_data:/prometheus
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+    networks:
+      - usecase2_network
+  
+  grafana:
+    image: grafana/grafana:13.2.4
+    container_name: claims-grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources:ro
+      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - ./grafana/dashboards:/var/lib/grafana/dashboards:ro
+    depends_on:
+      - prometheus
+    networks:
+      - usecase2_network
+  loki:
+    image: grafana/loki:3.7.8
+    container_name: claims-loki
+    restart: unless-stopped
+    ports:
+      - "3100:3100"
+    command:
+      - "-config.file=/etc/loki/loki-config.yml"
+    volumes:
+      - ./loki/loki-config.yml:/etc/loki/loki-config.yml:ro
+      - loki_data:/loki
+    networks:
+      - usecase2_network
+
+  alloy:
+    image: grafana/alloy:v1.20.1
+    container_name: claims-alloy
+    restart: unless-stopped
+    user: "0:0"
+    ports:
+      - "12345:12345"
+    volumes:
+      - ./alloy/config.alloy:/etc/alloy/config.alloy:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - alloy_data:/var/lib/alloy/data
+    command:
+      - run
+      - --server.http.listen-addr=0.0.0.0:12345
+      - --storage.path=/var/lib/alloy/data
+      - /etc/alloy/config.alloy
+    depends_on:
+      - loki
+    networks:
+      - usecase2_network
+networks:
+  usecase2_network:
+    external: true
+    name: usecase2_network
+
+volumes:
+  prometheus_data:
+  grafana_data:
+  loki_data:
+  alloy_data:

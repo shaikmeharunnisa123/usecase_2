@@ -1,4 +1,7 @@
-from flask import Flask, request, jsonify
+import time
+from flask import Flask, request, jsonify, g
+from prometheus_client import Counter, Histogram, make_wsgi_app
+from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from flask_cors import CORS
 import psycopg2
 from psycopg2.extras import RealDictCursor
@@ -6,7 +9,22 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import os
 app = Flask(__name__)
 CORS(app)
+HTTP_REQUESTS = Counter(
+    "claims_http_requests_total",
+    "Total number of HTTP requests received by the Claims backend",
+    ["method", "endpoint", "status"]
+)
 
+HTTP_REQUEST_DURATION = Histogram(
+    "claims_http_request_duration_seconds",
+    "Duration of HTTP requests handled by the Claims backend",
+    ["method", "endpoint"]
+)
+
+app.wsgi_app = DispatcherMiddleware(
+    app.wsgi_app,
+    {"/metrics": make_wsgi_app()}
+)
 DB_CONFIG = {
     "host": os.getenv("DB_HOST", "localhost"),
     "database": os.getenv("DB_NAME", "claimsdb"),
@@ -18,7 +36,28 @@ DB_CONFIG = {
 
 def get_db():
     return psycopg2.connect(**DB_CONFIG)
+@app.before_request
+def start_request_timer():
+    g.request_start_time = time.perf_counter()
 
+
+@app.after_request
+def record_request_metrics(response):
+    endpoint = request.url_rule.rule if request.url_rule else request.path
+
+    HTTP_REQUESTS.labels(
+        method=request.method,
+        endpoint=endpoint,
+        status=str(response.status_code)
+    ).inc()
+
+    if hasattr(g, "request_start_time"):
+        HTTP_REQUEST_DURATION.labels(
+            method=request.method,
+            endpoint=endpoint
+        ).observe(time.perf_counter() - g.request_start_time)
+
+    return response
 
 @app.route("/api/health")
 def health():
