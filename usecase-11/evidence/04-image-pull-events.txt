@@ -1,0 +1,51 @@
+26m         Normal    Scheduled           pod/claims-frontend-usecase11-785b584d57-qs5sq    Successfully assigned claims-k8s-lab/claims-frontend-usecase11-785b584d57-qs5sq to desktop-control-plane
+26m         Normal    ScalingReplicaSet   deployment/claims-frontend-usecase11              Scaled up replica set claims-frontend-usecase11-785b584d57 from 0 to 1
+26m         Normal    SuccessfulCreate    replicaset/claims-frontend-usecase11-785b584d57   Created pod: claims-frontend-usecase11-785b584d57-qs5sq
+25m         Normal    SuccessfulCreate    replicaset/claims-frontend-usecase11-55899dd966   Created pod: claims-frontend-usecase11-55899dd966-b7ntg
+25m         Normal    ScalingReplicaSet   deployment/claims-frontend-usecase11              Scaled up replica set claims-frontend-usecase11-55899dd966 from 0 to 1
+25m         Normal    Scheduled           pod/claims-frontend-usecase11-55899dd966-b7ntg    Successfully assigned claims-k8s-lab/claims-frontend-usecase11-55899dd966-b7ntg to desktop-control-plane
+23m         Warning   Failed              pod/claims-frontend-usecase11-785b584d57-qs5sq    Error: ErrImagePull
+23m         Warning   Failed              pod/claims-frontend-usecase11-785b584d57-qs5sq    Failed to pull image "host.docker.internal:80/claims/claims-frontend:usecase-11-missing": failed to pull and unpack image "host.docker.internal:80/claims/claims-frontend:usecase-11-missing": failed to resolve reference "host.docker.internal:80/claims/claims-frontend:usecase-11-missing": unexpected status from HEAD request to http://registry-mirror:1273/v2/claims/claims-frontend/manifests/usecase-11-missing?ns=host.docker.internal%3A80: 500 Internal Server Error
+23m         Normal    Pulling             pod/claims-frontend-usecase11-785b584d57-qs5sq    Pulling image "host.docker.internal:80/claims/claims-frontend:usecase-11-missing"
+23m         Warning   Failed              pod/claims-frontend-usecase11-55899dd966-b7ntg    Error: ErrImagePull
+23m         Normal    Pulling             pod/claims-frontend-usecase11-55899dd966-b7ntg    Pulling image "host.docker.internal:80/claims/claims-frontend:usecase-11-missing"
+23m         Warning   Failed              pod/claims-frontend-usecase11-55899dd966-b7ntg    Failed to pull image "host.docker.internal:80/claims/claims-frontend:usecase-11-missing": failed to pull and unpack image "host.docker.internal:80/claims/claims-frontend:usecase-11-missing": failed to resolve reference "host.docker.internal:80/claims/claims-frontend:usecase-11-missing": unexpected status from HEAD request to http://registry-mirror:1273/v2/claims/claims-frontend/manifests/usecase-11-missing?ns=host.docker.internal%3A80: 500 Internal Server Error
+15m         Normal    BackOff             pod/claims-frontend-usecase11-785b584d57-qs5sq    Back-off pulling image "host.docker.internal:80/claims/claims-frontend:usecase-11-missing"
+15m         Warning   Failed              pod/claims-frontend-usecase11-785b584d57-qs5sq    Error: ImagePullBackOff
+15m         Warning   Failed              pod/claims-frontend-usecase11-55899dd966-b7ntg    Error: ImagePullBackOff
+15m         Normal    BackOff             pod/claims-frontend-usecase11-55899dd966-b7ntg    Back-off pulling image "host.docker.internal:80/claims/claims-frontend:usecase-11-missing"
+13m         Normal    Scheduled           pod/claims-frontend-usecase11-785b584d57-wmr7t    Successfully assigned claims-k8s-lab/claims-frontend-usecase11-785b584d57-wmr7t to desktop-control-plane
+13m         Normal    SuccessfulCreate    replicaset/claims-frontend-usecase11-55899dd966   Created pod: claims-frontend-usecase11-55899dd966-zxc4g
+13m         Normal    SuccessfulCreate    replicaset/claims-frontend-usecase11-785b584d57   Created pod: claims-frontend-usecase11-785b584d57-wmr7t
+13m         Normal    Scheduled           pod/claims-frontend-usecase11-55899dd966-zxc4g    Successfully assigned claims-k8s-lab/claims-frontend-usecase11-55899dd966-zxc4g to desktop-control-plane
+11m         Warning   Failed              pod/claims-frontend-usecase11-785b584d57-wmr7t    Error: ErrImagePull
+11m         Normal    Pulling             pod/claims-frontend-usecase11-785b584d57-wmr7t    Pulling image "host.docker.internal:80/claims/claims-frontend:usecase-11-missing"
+11m         Warning   Failed              pod/claims-frontend-usecase11-785b584d57-wmr7t    Failed to pull image "host.docker.internal:80/claims/claims-frontend:usecase-11-missing": failed to pull and unpack image "host.docker.internal:80/claims/claims-frontend:usecase-11-missing": failed to resolve reference "host.docker.internal:80/claims/claims-frontend:usecase-11-missing": pull access denied, repository does not exist or may require authorization: authorization failed: no basic auth credentials
+10m         Warning   Failed              pod/claims-frontend-usecase11-55899dd966-zxc4g    Error: ImagePullBackOff
+10m         Normal    BackOff             pod/claims-frontend-usecase11-55899dd966-zxc4g    Back-off pulling image "host.docker.internal:80/claims/claims-frontend:usecase-11-missing"
+10m         Normal    BackOff             pod/claims-frontend-usecase11-785b584d57-wmr7t    Back-off pulling image "host.docker.internal:80/claims/claims-frontend:usecase-11-missing"
+10m         Warning   Failed              pod/claims-frontend-usecase11-785b584d57-wmr7t    Error: ImagePullBackOff
+10m         Normal    Pulling             pod/claims-frontend-usecase11-55899dd966-zxc4g    Pulling image "host.docker.internal:80/claims/claims-frontend:usecase-11-missing"
+10m         Warning   Failed              pod/claims-frontend-usecase11-55899dd966-zxc4g    Error: ErrImagePull
+10m         Warning   Failed              pod/claims-frontend-usecase11-55899dd966-zxc4g    Failed to pull image "host.docker.internal:80/claims/claims-frontend:usecase-11-missing": rpc error: code = NotFound desc = failed to pull and unpack image "host.docker.internal:80/claims/claims-frontend:usecase-11-missing": failed to resolve reference "host.docker.internal:80/claims/claims-frontend:usecase-11-missing": host.docker.internal:80/claims/claims-frontend:usecase-11-missing: not found
+10m         Normal    SuccessfulDelete    replicaset/claims-frontend-usecase11-785b584d57   Deleted pod: claims-frontend-usecase11-785b584d57-wmr7t
+10m         Normal    ScalingReplicaSet   deployment/claims-frontend-usecase11              Scaled up replica set claims-frontend-usecase11-85499c58f5 from 0 to 1
+10m         Normal    ScalingReplicaSet   deployment/claims-frontend-usecase11              Scaled down replica set claims-frontend-usecase11-785b584d57 from 1 to 0
+10m         Normal    SuccessfulCreate    replicaset/claims-frontend-usecase11-85499c58f5   Created pod: claims-frontend-usecase11-85499c58f5-pvzs5
+10m         Normal    Scheduled           pod/claims-frontend-usecase11-85499c58f5-pvzs5    Successfully assigned claims-k8s-lab/claims-frontend-usecase11-85499c58f5-pvzs5 to desktop-control-plane
+10m         Normal    Pulling             pod/claims-frontend-usecase11-85499c58f5-pvzs5    Pulling image "host.docker.internal:80/claims/claims-frontend:usecase-11-good"
+10m         Normal    Pulled              pod/claims-frontend-usecase11-85499c58f5-pvzs5    Successfully pulled image "host.docker.internal:80/claims/claims-frontend:usecase-11-good" in 2.491s (2.491s including waiting). Image size: 28878484 bytes.
+10m         Normal    ScalingReplicaSet   deployment/claims-frontend-usecase11              Scaled down replica set claims-frontend-usecase11-55899dd966 from 1 to 0
+10m         Normal    SuccessfulDelete    replicaset/claims-frontend-usecase11-55899dd966   Deleted pod: claims-frontend-usecase11-55899dd966-zxc4g
+4m24s       Normal    Pulled              pod/claims-frontend-usecase11-85499c58f5-pvzs5    Container image "host.docker.internal:80/claims/claims-frontend:usecase-11-good" already present on machine and can be accessed by the pod
+4m24s       Normal    Started             pod/claims-frontend-usecase11-85499c58f5-pvzs5    Container started
+4m24s       Normal    Created             pod/claims-frontend-usecase11-85499c58f5-pvzs5    Container created
+4m19s       Warning   BackOff             pod/claims-frontend-usecase11-85499c58f5-pvzs5    Back-off restarting failed container claims-frontend in pod claims-frontend-usecase11-85499c58f5-pvzs5_claims-k8s-lab(b6b38812-2bff-467a-9ec5-52e4e35025b1)
+3m30s       Normal    Pulled              pod/claims-frontend-usecase11-86f5979dfb-qpp6z    Container image "host.docker.internal:80/claims/claims-frontend:usecase-11-good" already present on machine and can be accessed by the pod
+3m30s       Normal    Created             pod/claims-frontend-usecase11-86f5979dfb-qpp6z    Container created
+3m30s       Normal    Started             pod/claims-frontend-usecase11-86f5979dfb-qpp6z    Container started
+3m30s       Normal    SuccessfulCreate    replicaset/claims-frontend-usecase11-86f5979dfb   Created pod: claims-frontend-usecase11-86f5979dfb-qpp6z
+3m30s       Normal    Scheduled           pod/claims-frontend-usecase11-86f5979dfb-qpp6z    Successfully assigned claims-k8s-lab/claims-frontend-usecase11-86f5979dfb-qpp6z to desktop-control-plane
+3m30s       Normal    ScalingReplicaSet   deployment/claims-frontend-usecase11              Scaled up replica set claims-frontend-usecase11-86f5979dfb from 0 to 1
+3m29s       Normal    SuccessfulDelete    replicaset/claims-frontend-usecase11-85499c58f5   Deleted pod: claims-frontend-usecase11-85499c58f5-pvzs5
+3m29s       Normal    ScalingReplicaSet   deployment/claims-frontend-usecase11              Scaled down replica set claims-frontend-usecase11-85499c58f5 from 1 to 0

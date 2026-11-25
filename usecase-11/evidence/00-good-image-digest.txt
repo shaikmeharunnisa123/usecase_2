@@ -1,0 +1,1 @@
+["host.docker.internal:80/claims/claims-frontend@sha256:757d030fde3103aaa3b49da5cd2dad781cc82c5399752917ae76c93b38c119c5"]

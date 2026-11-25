@@ -1,0 +1,17 @@
+===== USE CASE 11: SUCCESSFUL RECOVERY =====
+Wed Nov 25 04:36:24 UTC 2026
+
+===== DEPLOYMENT STATUS =====
+NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
+claims-frontend-usecase11   1/1     1            1           25m
+
+===== POD STATUS =====
+NAME                                         READY   STATUS    RESTARTS   AGE    IP            NODE                    NOMINATED NODE   READINESS GATES
+claims-frontend-usecase11-86f5979dfb-qpp6z   1/1     Running   0          3m1s   10.244.0.35   desktop-control-plane   <none>           <none>
+
+===== DEPLOYMENT IMAGE AND PULL SECRET =====
+Image: host.docker.internal:80/claims/claims-frontend:usecase-11-good
+Pull Secret: harbor-pull-secret
+
+===== ROLLOUT STATUS =====
+deployment "claims-frontend-usecase11" successfully rolled out
