@@ -1,0 +1,24 @@
+LAST SEEN   TYPE      REASON              OBJECT                                 MESSAGE
+43m         Normal    ScalingReplicaSet   deployment/claims-backend              Scaled up replica set claims-backend-6d7dbdf84 from 0 to 1
+43m         Normal    SuccessfulCreate    replicaset/claims-backend-6d7dbdf84    Created pod: claims-backend-6d7dbdf84-jrhlm
+43m         Normal    Scheduled           pod/claims-backend-6d7dbdf84-jrhlm     Successfully assigned claims-k8s-lab/claims-backend-6d7dbdf84-jrhlm to desktop-control-plane
+43m         Normal    Started             pod/claims-backend-6d7dbdf84-jrhlm     Container started
+43m         Normal    Pulled              pod/claims-backend-6d7dbdf84-jrhlm     Container image "usecase3-backend:latest" already present on machine and can be accessed by the pod
+43m         Normal    Created             pod/claims-backend-6d7dbdf84-jrhlm     Container created
+43m         Normal    ScalingReplicaSet   deployment/claims-backend              Scaled down replica set claims-backend-788b98f5c4 from 1 to 0
+43m         Normal    SuccessfulDelete    replicaset/claims-backend-788b98f5c4   Deleted pod: claims-backend-788b98f5c4-q8jg6
+43m         Normal    Killing             pod/claims-backend-788b98f5c4-q8jg6    Stopping container backend
+36m         Normal    ScalingReplicaSet   deployment/claims-backend              Scaled up replica set claims-backend-64bf797d8c from 0 to 1
+36m         Normal    Scheduled           pod/claims-backend-64bf797d8c-rn6s2    Successfully assigned claims-k8s-lab/claims-backend-64bf797d8c-rn6s2 to desktop-control-plane
+36m         Normal    SuccessfulCreate    replicaset/claims-backend-64bf797d8c   Created pod: claims-backend-64bf797d8c-rn6s2
+36m         Normal    Pulled              pod/claims-backend-64bf797d8c-rn6s2    Container image "usecase3-backend:latest" already present on machine and can be accessed by the pod
+36m         Normal    Started             pod/claims-backend-64bf797d8c-rn6s2    Container started
+36m         Normal    Created             pod/claims-backend-64bf797d8c-rn6s2    Container created
+36m         Normal    Killing             pod/claims-backend-6d7dbdf84-jrhlm     Stopping container backend
+36m         Normal    SuccessfulDelete    replicaset/claims-backend-6d7dbdf84    Deleted pod: claims-backend-6d7dbdf84-jrhlm
+36m         Normal    ScalingReplicaSet   deployment/claims-backend              Scaled down replica set claims-backend-6d7dbdf84 from 1 to 0
+94s         Normal    Scheduled           pod/claims-backend-64768c4b98-gzt4r    Successfully assigned claims-k8s-lab/claims-backend-64768c4b98-gzt4r to desktop-control-plane
+94s         Normal    SuccessfulCreate    replicaset/claims-backend-64768c4b98   Created pod: claims-backend-64768c4b98-gzt4r
+94s         Normal    ScalingReplicaSet   deployment/claims-backend              Scaled up replica set claims-backend-64768c4b98 from 0 to 1
+2s          Warning   Failed              pod/claims-backend-64768c4b98-gzt4r    Error: secret "claims-usecase12-secret" not found
+2s          Normal    Pulled              pod/claims-backend-64768c4b98-gzt4r    Container image "usecase3-backend:latest" already present on machine and can be accessed by the pod

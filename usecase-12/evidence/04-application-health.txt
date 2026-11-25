@@ -1,0 +1,22 @@
+=== Backend Deployment ===
+NAME             READY   UP-TO-DATE   AVAILABLE   AGE
+claims-backend   1/1     1            1           14d
+
+=== Backend Pods ===
+NAME                                         READY   STATUS    RESTARTS     AGE
+claims-backend-64bf797d8c-rn6s2              1/1     Running   0            19m
+claims-db-5d575c9679-7sgmz                   1/1     Running   4 (9d ago)   14d
+claims-frontend-6bb958bf7d-m2fzz             1/1     Running   8 (9d ago)   13d
+claims-frontend-usecase11-86f5979dfb-qpp6z   1/1     Running   0            4h45m
+claims-gateway-nginx-8ff799b9b-lkjmg         1/1     Running   3 (9d ago)   13d
+
+=== Application Health ===
+HTTP/1.1 200 OK
+Server: gunicorn
+Date: Wed, 25 Nov 2026 09:19:14 GMT
+Connection: close
+Content-Type: application/json
+Content-Length: 48
+Access-Control-Allow-Origin: *
+
+{"service":"claims-backend","status":"healthy"}

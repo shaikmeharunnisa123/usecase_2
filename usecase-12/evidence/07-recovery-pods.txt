@@ -1,0 +1,2 @@
+NAME                              READY   STATUS    RESTARTS   AGE   IP            NODE                    NOMINATED NODE   READINESS GATES
+claims-backend-764bb78cb7-gg9d2   1/1     Running   0          54m   10.244.0.39   desktop-control-plane   <none>           <none>
