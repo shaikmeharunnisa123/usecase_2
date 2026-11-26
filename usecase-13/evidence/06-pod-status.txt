@@ -1,0 +1,2 @@
+NAME                                     READY   STATUS    RESTARTS   AGE   IP            NODE                    NOMINATED NODE   READINESS GATES
+usecase13-policy-demo-6897785ff9-ns9nv   1/1     Running   0          65m   10.244.0.41   desktop-control-plane   <none>           <none>
